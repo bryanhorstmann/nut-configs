@@ -20,7 +20,7 @@ case $1 in
   upsonbatt)
     upsmon -c fsd
     ;;
-	*)
-		logger -t upssched-cmd "Unrecognized command: $1"
-		;;
+  *)
+    logger -t upssched-cmd "Unrecognized command: $1"
+    ;;
 esac
