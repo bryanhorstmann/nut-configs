@@ -62,7 +62,7 @@ shutdown.stop - Stop a shutdown in progress
 ```
 
 ### Disable the beeper
-`upscmd ups beeper.disable`
+`upscmd <upsname> beeper.disable`
 ```
 → upscmd ups beeper.disable
 Username (bryan): admin
