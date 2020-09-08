@@ -11,7 +11,7 @@ Mostly default configuration for Eaton 5E in standalone mode.
 `upsmon.conf` calls `/bin/upssched` as a `NOTIFYCMD`. This ensures the configutaion in `upssched.conf` is executed.
 
 ### cron
-The ups beeper does not stay off. Appears to turn back on after losing power or turning itself off. This is a simple cron that will check the current status and if the beeper is not disbaled, disable it. Requires a few variables to be configured.
+The ups beeper does not stay off. Appears to turn back on after losing power or turning itself off. This is a simple cron that will check the current status and if the beeper is not disabled, disable it. Requires a few variables to be configured.
 
 ## Commands
 ### Get current status.
