@@ -1,7 +1,7 @@
 # NUT Configs
 My configs and setup to get NUT running on my ubuntu desktop with an Mecer ME-2000-VU.
 
-This guide previously gave instructions on setting up an Eaton 5E. Those can be found here:
+This guide previously contained instructions on setting up an Eaton 5E. Those can be found in the [eaton-5e](https://github.com/bryanhorstmann/nut-configs/tree/eaton-5e) tag.
 
 ## Configs
 ### bin
@@ -77,4 +77,3 @@ Username (bryan): admin
 Password:
 OK
 ```
-
