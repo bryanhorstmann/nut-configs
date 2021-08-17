@@ -1,5 +1,7 @@
 # NUT Configs
-My configs and setup to get NUT running on my ubuntu desktop with an Eaton 5E UPS.
+My configs and setup to get NUT running on my ubuntu desktop with an Mecer ME-2000-VU.
+
+This guide previously gave instructions on setting up an Eaton 5E. Those can be found here:
 
 ## Configs
 ### bin
@@ -20,41 +22,33 @@ The ups beeper does not stay off. Appears to turn back on after losing power or 
 → upsc ups
 Init SSL without certificate database
 battery.charge: 100
-battery.runtime: 1825
-battery.type: PbAc
-device.mfr: EATON
-device.model: 5E 650i
+battery.voltage: 27.40
+battery.voltage.high: 26.00
+battery.voltage.low: 20.80
+battery.voltage.nominal: 24.0
 device.type: ups
-driver.name: usbhid-ups
-driver.parameter.pollfreq: 30
+driver.name: blazer_usb
 driver.parameter.pollinterval: 5
 driver.parameter.port: auto
 driver.parameter.synchronous: no
-driver.parameter.vendorid: 0463
+driver.parameter.vendorid: 0665
 driver.version: 2.7.4
-driver.version.data: MGE HID 1.40
-driver.version.internal: 0.41
-input.voltage: 234.0
-outlet.1.status: on
-outlet.desc: Main Outlet
-outlet.id: 1
-outlet.switchable: no
-output.frequency: 50.0
-output.frequency.nominal: 50
-output.voltage: 234.0
-output.voltage.nominal: 230
+driver.version.internal: 0.12
+input.current.nominal: 8.0
+input.frequency: 50.1
+input.frequency.nominal: 50
+input.voltage: 237.1
+input.voltage.fault: 237.1
+input.voltage.nominal: 230
+output.voltage: 237.1
 ups.beeper.status: disabled
-ups.delay.shutdown: 20
-ups.firmware: 03.08.0018
-ups.load: 20
-ups.mfr: EATON
-ups.model: 5E 650i
-ups.power.nominal: 650
-ups.productid: ffff
-ups.start.battery: yes
+ups.delay.shutdown: 30
+ups.delay.start: 180
+ups.load: 2
+ups.productid: 5161
 ups.status: OL
-ups.timer.shutdown: -1
-ups.vendorid: 0463
+ups.type: offline / line interactive
+ups.vendorid: 0665
 ```
 
 ### List all possible commands
@@ -63,20 +57,22 @@ ups.vendorid: 0463
 → upscmd -l ups
 Instant commands supported on UPS [ups]:
 
-beeper.disable - Disable the UPS beeper
-beeper.enable - Enable the UPS beeper
-beeper.mute - Temporarily mute the UPS beeper
-beeper.off - Obsolete (use beeper.disable or beeper.mute)
-beeper.on - Obsolete (use beeper.enable)
+beeper.toggle - Toggle the UPS beeper
 load.off - Turn off the load immediately
-load.off.delay - Turn off the load with a delay (seconds)
+load.on - Turn on the load immediately
+shutdown.return - Turn off the load and return when power is back
+shutdown.stayoff - Turn off the load and remain off
 shutdown.stop - Stop a shutdown in progress
+test.battery.start - Start a battery test
+test.battery.start.deep - Start a deep battery test
+test.battery.start.quick - Start a quick battery test
+test.battery.stop - Stop the battery test
 ```
 
 ### Disable the beeper
-`upscmd <upsname> beeper.disable`
+`upscmd <upsname> beeper.toggle`
 ```
-→ upscmd ups beeper.disable
+→ upscmd ups beeper.toggle
 Username (bryan): admin
 Password:
 OK
