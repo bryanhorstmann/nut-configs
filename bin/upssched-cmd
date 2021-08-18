@@ -18,7 +18,8 @@ case $1 in
     logger -t upssched-cmd "UPS on line power"
     ;;
   upsonbatt)
-    upsmon -c fsd
+    logger -t upssched-cmd "Shutting down server via NUT"
+    /sbin/shutdown -h +0
     ;;
   *)
     logger -t upssched-cmd "Unrecognized command: $1"

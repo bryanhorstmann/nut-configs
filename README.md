@@ -5,10 +5,10 @@ This guide previously contained instructions on setting up an Eaton 5E. Those ca
 
 ## Configs
 ### bin
-`upssched-cmd` replaces the pre-installed file. This will log a message to syslog when ups goes on battery or comes online. Also has a `upsonbatt` command to shutdown all load on UPS and then shutdown the UPS itself.
+`upssched-cmd` replaces the pre-installed file. This will log a message to syslog when ups goes on battery or comes online. Also has a `upsonbatt` command to shutdown the NUT master.
 
 ### config
-Mostly default configuration for Eaton 5E in standalone mode.
+Mostly default configuration for UPS in standalone mode.
 
 `upsmon.conf` calls `/bin/upssched` as a `NOTIFYCMD`. This ensures the configutaion in `upssched.conf` is executed.
 
