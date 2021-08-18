@@ -12,16 +12,16 @@
 
 case $1 in
   logonbatt)
-    logger -t upssched-cmd "UPS on battery power"
+    logger -i -t upssched-cmd "($(whoami)) UPS on battery power"
     ;;
   upsonline)
-    logger -t upssched-cmd "UPS on line power"
+    logger -i -t upssched-cmd "($(whoami)) UPS on line power"
     ;;
   upsonbatt)
-    logger -t upssched-cmd "Shutting down server via NUT"
-    /sbin/shutdown -h +0
+    logger -i -t upssched-cmd "($(whoami)) Shutting down server via NUT"
+    sudo /sbin/shutdown -h 0
     ;;
   *)
-    logger -t upssched-cmd "Unrecognized command: $1"
+    logger -i -t upssched-cmd "($(whoami)) Unrecognized command: $1"
     ;;
 esac

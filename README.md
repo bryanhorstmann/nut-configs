@@ -15,6 +15,18 @@ Mostly default configuration for UPS in standalone mode.
 ### cron
 The ups beeper does not stay off. Appears to turn back on after losing power or turning itself off. This is a simple cron that will check the current status and if the beeper is not disabled, disable it. Requires a few variables to be configured.
 
+## Installation
+To install everything in the correct directories and restart all services:
+```
+make redeploy-all
+```
+### Give nut group shutdown permissions
+The `upssched` command is run as the nut user. In order to shutdown the host system, the nut user needs permissions to do so. Add the following to `/etc/sudoers`
+```
+# All nut group ability to shutdown server
+%nut ALL=NOPASSWD: /sbin/shutdown
+```
+
 ## Commands
 ### Get current status.
 `upsc <upsname>`
