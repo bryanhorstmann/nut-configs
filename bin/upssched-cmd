@@ -12,13 +12,13 @@
 
 case $1 in
   logonbatt)
-    logger -i -t upssched-cmd "($(whoami)) UPS on battery power"
+    logger -i -p daemon.crit -t upssched-cmd "($(whoami)) UPS on battery power"
     ;;
   upsonline)
     logger -i -t upssched-cmd "($(whoami)) UPS on line power"
     ;;
   upsonbatt)
-    logger -i -t upssched-cmd "($(whoami)) Shutting down server via NUT"
+    logger -i -p daemon.crit -t upssched-cmd "($(whoami)) Shutting down server via NUT"
     sudo /sbin/shutdown -h 0
     ;;
   *)
